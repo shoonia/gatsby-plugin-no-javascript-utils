@@ -12,8 +12,22 @@
     "gatsby-plugin",
     "no javascript",
     "no sourcemaps",
-    "no generator"
+    "no generator",
+    "no inline styles"
   ],
-  "author": "Alexander Zaytsev <zaytsev126@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoonia/gatsby-plugin-no-javascript-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shoonia/gatsby-plugin-no-javascript-utils/issues"
+  },
+  "author": {
+    "name": "Alexander Zaytsev",
+    "email": "zaytsev126@gmail.com",
+    "url": "https://twitter.com/_shoonia"
+  },
+  "homepage": "https://github.com/shoonia/gatsby-plugin-no-javascript-utils#readme",
+  "private": false,
   "license": "MIT"
 }

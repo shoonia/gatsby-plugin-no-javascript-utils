@@ -1,6 +1,6 @@
 # gatsby-plugin-no-javascript-utils
 
-> process...
+> TODO: remove Gatsby tags in body
 
 The utils for static site without javascript
 
