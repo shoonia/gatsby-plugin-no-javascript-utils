@@ -34,7 +34,7 @@ module.exports = {
 }
 ```
 
-With options:
+## Options
 
 ```js
 // In your gatsby-config.js
@@ -54,7 +54,7 @@ module.exports = {
 }
 ```
 
-## Remove Generator Meta Tag
+### Remove Generator Meta Tag
 
 ```diff
 <head>
@@ -65,16 +65,20 @@ module.exports = {
   <title>My Blog</title>
 ```
 
-## Remove react-helmet attributes
+### Remove react-helmet attributes
 
 ```diff
 - <html lang="en" data-react-helmet="lang">
 + <html lang="en">
 ```
 
-## No inline styles
+### No inline styles
 
 ```diff
 - <style data-href="/styles.457cfd10c24f55260d5a.css">...</style>
 + <link rel="stylesheet" href="/styles.457cfd10c24f55260d5a.css" type="text/css"/>
 ```
+
+## License
+
+[MIT](./LICENSE)
