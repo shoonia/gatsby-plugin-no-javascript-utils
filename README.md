@@ -46,6 +46,7 @@ module.exports = {
       options: {
         noSourcemap: true, // disable sourcemaps
         removeGeneratorTag: true,
+        removeReactHelmetAttrs: true,
       },
     },
   ],
@@ -61,4 +62,11 @@ module.exports = {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 - <meta name="generator" content="Gatsby 2.21.4">
   <title>My Blog</title>
+```
+
+## Remove react-helmet attributes
+
+```diff
+- <html lang="en" data-react-helmet="lang">
++ <html lang="en">
 ```
