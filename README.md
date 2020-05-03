@@ -47,6 +47,7 @@ module.exports = {
         noSourcemap: true, // disable sourcemaps
         removeGeneratorTag: true,
         removeReactHelmetAttrs: true,
+        noInlineStyles: false,
       },
     },
   ],
@@ -69,4 +70,11 @@ module.exports = {
 ```diff
 - <html lang="en" data-react-helmet="lang">
 + <html lang="en">
+```
+
+## No inline styles
+
+```diff
+- <style data-href="/styles.457cfd10c24f55260d5a.css">...</style>
++ <link rel="stylesheet" href="/styles.457cfd10c24f55260d5a.css" type="text/css"/>
 ```
