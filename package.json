@@ -11,7 +11,8 @@
     "gatsby",
     "gatsby-plugin",
     "no javascript",
-    "no sourcemaps"
+    "no sourcemaps",
+    "no generator"
   ],
   "author": "Alexander Zaytsev <zaytsev126@gmail.com>",
   "license": "MIT"

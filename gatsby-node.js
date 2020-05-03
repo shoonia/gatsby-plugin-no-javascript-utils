@@ -1,8 +1,8 @@
 exports.onCreateWebpackConfig = (
   { stage, actions },
-  { noSourcemap = true },
+  { noSourcemaps = true },
 ) => {
-  if (noSourcemap && stage === 'build-javascript') {
+  if (noSourcemaps && stage === 'build-javascript') {
     actions.setWebpackConfig({
       devtool: false,
     });
