@@ -1,7 +1,7 @@
 {
   "name": "gatsby-plugin-no-javascript-utils",
-  "version": "0.1.0",
-  "description": "the utils for static site without javascript",
+  "version": "0.1.1",
+  "description": "The utils for static site without javascript",
   "main": "index.js",
   "scripts": {},
   "peerDependencies": {
