@@ -1,5 +1,6 @@
 .gitignore
 .npmrc
+.DS_Store
 package-lock.json
 
 *.log*

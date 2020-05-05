@@ -50,20 +50,24 @@ module.exports = {
         removeGeneratorTag: true,
         removeReactHelmetAttrs: true,
         noInlineStyles: false,
+        removeGatsbyAnnouncer: false,
       },
     },
   ],
 }
 ```
 
-|    Name                    |   Type      | Default  | Description |
+| Name                       | Type        | Default  | Description |
 |:--------------------------:|:-----------:|:--------:|:-----------:|
 | **noSourcemaps**           | `{Boolean}` | `true`   | Disabling generation of sourcemaps
 | **removeGeneratorTag**     | `{Boolean}` | `true`   | [Remove generator meta tag](#remove-generator-meta-tag)
 | **removeReactHelmetAttrs** | `{Boolean}` | `true`   | [Remove react-helmet data attributes](#Remove-react-helmet-data-attributes)
-| **noInlineStyles**         | `{Boolean}` | `false`  | [replace `<style data-href>` tag with `<link>` tag](#no-inline-styles)
+| **noInlineStyles**         | `{Boolean}` | `false`  | [Replace `<style data-href>` tag with `<link>` tag](#no-inline-styles)
+| **removeGatsbyAnnouncer**  | `{Boolean}` | `false`  | [Remove routing announcer for SPA websites](#remove-gatsby-announcer)
 
 ### Remove generator meta tag
+
+`(default: true)`
 
 ```diff
 <head>
@@ -75,6 +79,8 @@ module.exports = {
 
 ### Remove react-helmet data attributes
 
+`(default: true)`
+
 ```diff
 - <html lang="en" data-react-helmet="lang">
 + <html lang="en">
@@ -82,11 +88,27 @@ module.exports = {
 
 ### No inline styles
 
-Replacing `<style data-href>` tag with `<link>` tag for reducing the size of HTML files and browser caching of CSS files. The default is off.
+`(default: false)`
+
+Replacing `<style data-href>` tag with `<link>` tag for reducing the size of HTML files and browser caching of CSS files.
 
 ```diff
 - <style data-href="/styles.457cfd10c24f55260d5a.css"> ⋯ </style>
 + <link rel="stylesheet" href="/styles.457cfd10c24f55260d5a.css" type="text/css"/>
+```
+
+### Remove Gatsby announcer
+
+`(default: false)`
+
+The `<div id="gatsby-announcer" ⋯>` is announcing route changes in a single-page application where the pages update without a reload. It may be unnecessary on a static sites.
+
+```diff
+<body>
+  <div id="___gatsby">
+    <div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"> ⋯ </div>
+-   <div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div>
+  </div>
 ```
 
 ## License

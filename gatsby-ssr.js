@@ -40,3 +40,16 @@ exports.onPreRenderHTML = (
     replaceHeadComponents(header);
   }
 };
+
+exports.wrapRootElement = (
+  { element },
+  { removeGatsbyAnnouncer = false },
+) => {
+  if (isProduction && removeGatsbyAnnouncer) {
+    element.props.children = element.props.children.filter(
+      (i) => i.props.id !== 'gatsby-announcer',
+    );
+
+    return element;
+  }
+};
