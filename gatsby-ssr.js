@@ -28,7 +28,6 @@ exports.onPreRenderHTML = (
       header.forEach((i) => {
         if (i.type === 'style' && key in i.props) {
           i.type = 'link';
-
           i.props = {
             rel: 'stylesheet',
             href: i.props[key],

@@ -46,7 +46,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-no-javascript-utils',
       options: {
-        noSourcemap: true,
+        noSourcemaps: true,
         removeGeneratorTag: true,
         removeReactHelmetAttrs: true,
         noInlineStyles: false,
@@ -56,11 +56,9 @@ module.exports = {
 }
 ```
 
-## Options
-
 |    Name                    |   Type      | Default  | Description |
 |:--------------------------:|:-----------:|:--------:|:-----------:|
-| **noSourcemap**            | `{Boolean}` | `true`   | Disabling generation sourcemap
+| **noSourcemaps**           | `{Boolean}` | `true`   | Disabling generation of sourcemaps
 | **removeGeneratorTag**     | `{Boolean}` | `true`   | [Remove generator meta tag](#remove-generator-meta-tag)
 | **removeReactHelmetAttrs** | `{Boolean}` | `true`   | [Remove react-helmet data attributes](#Remove-react-helmet-data-attributes)
 | **noInlineStyles**         | `{Boolean}` | `false`  | [replace `<style data-href>` tag with `<link>` tag](#no-inline-styles)
@@ -84,7 +82,7 @@ module.exports = {
 
 ### No inline styles
 
-Replacing `<style data-href>` tag with `<link>` tag for reducing the size of HTML files and caching of CSS files in the browser.
+Replacing `<style data-href>` tag with `<link>` tag for reducing the size of HTML files and browser caching of CSS files. The default is off.
 
 ```diff
 - <style data-href="/styles.457cfd10c24f55260d5a.css"> ⋯ </style>
