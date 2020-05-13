@@ -57,17 +57,13 @@ module.exports = {
 }
 ```
 
-| Name                       | Type        | Default  | Description |
-|:--------------------------:|:-----------:|:--------:|:-----------:|
-| **noSourcemaps**           | `{Boolean}` | `true`   | Disabling generation of sourcemaps
-| **removeGeneratorTag**     | `{Boolean}` | `true`   | [Remove generator meta tag](#remove-generator-meta-tag)
-| **removeReactHelmetAttrs** | `{Boolean}` | `true`   | [Remove react-helmet data attributes](#Remove-react-helmet-data-attributes)
-| **noInlineStyles**         | `{Boolean}` | `false`  | [Replace `<style data-href>` tag with `<link>` tag](#no-inline-styles)
-| **removeGatsbyAnnouncer**  | `{Boolean}` | `false`  | [Remove routing announcer for SPA websites](#remove-gatsby-announcer)
+### `noSourcemaps: (default: true)`
 
-### Remove generator meta tag
+Disable generation of javascript sourcemaps
 
-`(default: true)`
+### `removeGeneratorTag: (default: true)`
+
+Remove generator meta tag
 
 ```diff
 <head>
@@ -77,18 +73,16 @@ module.exports = {
   <title>My Blog</title>
 ```
 
-### Remove react-helmet data attributes
+### `removeReactHelmetAttrs: (default: true)`
 
-`(default: true)`
+Remove react-helmet data attributes
 
 ```diff
 - <html lang="en" data-react-helmet="lang">
 + <html lang="en">
 ```
 
-### No inline styles
-
-`(default: false)`
+### `noInlineStyles: (default: false)`
 
 Replacing `<style data-href>` tag with `<link>` tag for reducing the size of HTML files and browser caching of CSS files.
 
@@ -97,9 +91,7 @@ Replacing `<style data-href>` tag with `<link>` tag for reducing the size of HTM
 + <link rel="stylesheet" href="/styles.457cfd10c24f55260d5a.css" type="text/css"/>
 ```
 
-### Remove Gatsby announcer
-
-`(default: false)`
+### `removeGatsbyAnnouncer: (default: false)`
 
 The `<div id="gatsby-announcer" ⋯>` is announcing route changes in a single-page application where the pages update without a reload. It may be unnecessary on a static sites.
 
