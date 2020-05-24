@@ -51,6 +51,7 @@ module.exports = {
         removeReactHelmetAttrs: true,
         noInlineStyles: false,
         removeGatsbyAnnouncer: false,
+        removePreloadLinks: false,
       },
     },
   ],
@@ -101,6 +102,19 @@ The `<div id="gatsby-announcer" ⋯>` is announcing route changes in a single-pa
     <div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"> ⋯ </div>
 -   <div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div>
   </div>
+```
+
+**`removePreloadLinks: (default: false)`**
+
+Preloading data is not needed if the site does not use any JavaScript.
+
+```diff
+<head>
+    <meta charSet="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+-    <link as="fetch" rel="preload" href="/page-data\index\page-data.json" crossorigin="anonymous"/>
+-    <link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/>
 ```
 
 ## License
