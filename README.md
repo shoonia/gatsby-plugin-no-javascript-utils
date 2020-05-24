@@ -51,6 +51,7 @@ module.exports = {
         removeReactHelmetAttrs: true,
         noInlineStyles: false,
         removeGatsbyAnnouncer: false,
+        removeFocusWrapper: false,
       },
     },
   ],
@@ -101,6 +102,18 @@ The `<div id="gatsby-announcer" ⋯>` is announcing route changes in a single-pa
     <div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"> ⋯ </div>
 -   <div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div>
   </div>
+```
+
+**`removeFocusWrapper: (default: false)`**
+
+Body focus wrapper is not needed if the site is fully static and does not use any JavaScript.
+
+```diff
+<body>
+<div id="___gatsby">
+-    <div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper">
+        <div>Hello world!</div>
+-    </div>
 ```
 
 ## License
