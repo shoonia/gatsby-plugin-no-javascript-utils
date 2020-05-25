@@ -51,6 +51,7 @@ module.exports = {
         removeReactHelmetAttrs: true,
         noInlineStyles: false,
         removeGatsbyAnnouncer: false,
+        removeFocusWrapper: false,
         removePreloadLinks: false,
       },
     },
@@ -104,6 +105,18 @@ The `<div id="gatsby-announcer" ⋯>` is announcing route changes in a single-pa
   </div>
 ```
 
+**`removeFocusWrapper: (default: false)`**
+
+Body focus wrapper is not needed if the site is fully static and does not use any JavaScript.
+
+```diff
+<body>
+<div id="___gatsby">
+-  <div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper">
+    <div>Hello world!</div>
+-  </div>
+```
+
 **`removePreloadLinks: (default: false)`**
 
 Preloading data is not needed if the site does not use any JavaScript.
@@ -113,10 +126,11 @@ Preloading data is not needed if the site does not use any JavaScript.
     <meta charSet="utf-8"/>
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
--    <link as="fetch" rel="preload" href="/page-data\index\page-data.json" crossorigin="anonymous"/>
--    <link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/>
+-   <link as="fetch" rel="preload" href="/page-data\index\page-data.json" crossorigin="anonymous"/>
+-   <link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/>
 ```
 
 ## License
 
 [MIT](./LICENSE)
+
