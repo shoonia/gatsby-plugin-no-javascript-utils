@@ -53,14 +53,15 @@ exports.wrapRootElement = (
 
     if (removeGatsbyAnnouncer) {
       element.props.children = element.props.children.filter(
-          (i) => i.props.id !== 'gatsby-announcer',
+        (i) => i.props.id !== 'gatsby-announcer',
       );
     }
 
     if (removeFocusWrapper) {
       const index = element.props.children.findIndex(
-          (i) => i.props.id === 'gatsby-focus-wrapper',
-      )
+        (i) => i.props.id === 'gatsby-focus-wrapper',
+      );
+
       if (index !== -1) {
         element.props.children[index] = element.props.children[index].props.children;
       }

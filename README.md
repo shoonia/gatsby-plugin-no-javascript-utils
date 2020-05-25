@@ -4,8 +4,6 @@
 
 The utils for static site without javascript
 
-> TODO: remove Gatsby tags in body
-
 ## Install
 
 ```bash
@@ -133,4 +131,3 @@ Preloading data is not needed if the site does not use any JavaScript.
 ## License
 
 [MIT](./LICENSE)
-
