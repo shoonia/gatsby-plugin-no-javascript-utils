@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/gatsby-plugin-no-javascript-utils.svg)](https://www.npmjs.com/package/gatsby-plugin-no-javascript-utils)
 
-The utils for static site without javascript
+The utils for static site without JavaScript
 
 ## Install
 
@@ -19,7 +19,7 @@ yarn add gatsby-plugin-no-javascript gatsby-plugin-no-javascript-utils
 module.exports = {
   siteMetadata: {
     title: 'Blog',
-    description: 'Web Blog'
+    description: 'Web Blog',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -59,7 +59,7 @@ module.exports = {
 
 **`noSourcemaps: (default: true)`**
 
-Disable generation of javascript sourcemaps
+Disable generation of JavaScript sourcemaps
 
 **`removeGeneratorTag: (default: true)`**
 
@@ -88,7 +88,7 @@ Replacing `<style data-href>` tag with `<link>` tag for reducing the size of HTM
 
 ```diff
 - <style data-href="/styles.457cfd10c24f55260d5a.css"> ⋯ </style>
-+ <link rel="stylesheet" href="/styles.457cfd10c24f55260d5a.css" type="text/css"/>
++ <link rel="stylesheet" href="/styles.457cfd10c24f55260d5a.css"/>
 ```
 
 **`removeGatsbyAnnouncer: (default: false)`**
@@ -121,11 +121,11 @@ Preloading data is not needed if the site does not use any JavaScript.
 
 ```diff
 <head>
-    <meta charSet="utf-8"/>
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
--   <link as="fetch" rel="preload" href="/page-data\index\page-data.json" crossorigin="anonymous"/>
--   <link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/>
+  <meta charSet="utf-8"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+- <link as="fetch" rel="preload" href="/page-data\index\page-data.json" crossorigin="anonymous"/>
+- <link as="fetch" rel="preload" href="/page-data\app-data.json" crossorigin="anonymous"/>
 ```
 
 ## License

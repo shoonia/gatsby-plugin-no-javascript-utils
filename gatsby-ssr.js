@@ -31,7 +31,6 @@ exports.onPreRenderHTML = (
           i.props = {
             rel: 'stylesheet',
             href: i.props[key],
-            type: 'text/css',
           };
         }
       });
