@@ -56,15 +56,16 @@ exports.wrapRootElement = (
       );
     }
 
-    if (removeFocusWrapper) {
-      const index = element.props.children.findIndex(
-        (i) => i.props.id === 'gatsby-focus-wrapper',
-      );
+    // FIXME: broken in new version of Gatsby
+    // if (removeFocusWrapper) {
+    //   const index = element.props.children.findIndex(
+    //     (i) => i.props.id === 'gatsby-focus-wrapper',
+    //   );
 
-      if (index !== -1) {
-        element.props.children[index] = element.props.children[index].props.children;
-      }
-    }
+    //   if (index !== -1) {
+    //     element.props.children[index] = element.props.children[index].props.children;
+    //   }
+    // }
 
     return element;
   }

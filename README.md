@@ -49,7 +49,6 @@ module.exports = {
         removeReactHelmetAttrs: true,
         noInlineStyles: false,
         removeGatsbyAnnouncer: false,
-        removeFocusWrapper: false,
         removePreloadLinks: false,
       },
     },
@@ -103,6 +102,7 @@ The `<div id="gatsby-announcer" ⋯>` is announcing route changes in a single-pa
   </div>
 ```
 
+<!--- FIXME: broken in new version of Gatsby
 **`removeFocusWrapper: (default: false)`**
 
 Body focus wrapper is not needed if the site is fully static and does not use any JavaScript.
@@ -114,6 +114,7 @@ Body focus wrapper is not needed if the site is fully static and does not use an
     <div>Hello world!</div>
 -  </div>
 ```
+-->
 
 **`removePreloadLinks: (default: false)`**
 

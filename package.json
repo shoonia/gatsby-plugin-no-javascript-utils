@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-no-javascript-utils",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "The utils for static site without javascript",
   "main": "index.js",
   "peerDependencies": {
@@ -9,10 +9,10 @@
   "keywords": [
     "gatsby",
     "gatsby-plugin",
-    "no javascript",
-    "no sourcemaps",
-    "no generator",
-    "no inline styles"
+    "no-javascript",
+    "no-sourcemaps",
+    "no-generator",
+    "no-inline-styles"
   ],
   "repository": {
     "type": "git",
