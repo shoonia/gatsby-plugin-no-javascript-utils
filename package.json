@@ -3,8 +3,23 @@
   "version": "0.5.2",
   "description": "The utils for static site without javascript",
   "main": "index.js",
+  "scripts": {
+    "lint": "eslint '**/*.js'"
+  },
+  "devDependencies": {
+    "eslint": "^7.29.0",
+    "simple-git-hooks": "^2.5.1"
+  },
   "peerDependencies": {
     "gatsby": "^2.0.0 || ^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "gatsby": {
+      "optional": true
+    }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npm run lint"
   },
   "keywords": [
     "gatsby",

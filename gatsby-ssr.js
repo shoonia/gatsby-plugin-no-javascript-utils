@@ -1,15 +1,30 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
 exports.onPreRenderHTML = (
-  { getHeadComponents, replaceHeadComponents },
-  { removeGeneratorTag = true, removeReactHelmetAttrs = true,
-    noInlineStyles = false, removePreloadLinks = false },
+  {
+    getHeadComponents,
+    replaceHeadComponents,
+  },
+  {
+    removeGeneratorTag = true,
+    removeReactHelmetAttrs = true,
+    noInlineStyles = false,
+    removePreloadLinks = false,
+  },
 ) => {
   if (isProduction) {
     let header = getHeadComponents();
 
     if (removeGeneratorTag) {
-      header = header.filter((i) => i.type !== 'meta' || i.props.name !== 'generator');
+      header = header.filter(
+        (i) => i.type !== 'meta' || i.props.name !== 'generator',
+      );
+    }
+
+    if (removePreloadLinks) {
+      header = header.filter(
+        (i) => i.type !== 'link' || i.props.as !== 'fetch' || i.props.rel !== 'preload',
+      );
     }
 
     if (removeReactHelmetAttrs) {
@@ -36,17 +51,17 @@ exports.onPreRenderHTML = (
       });
     }
 
-    if (removePreloadLinks) {
-      header = header.filter((i) => i.type !== 'link' || i.props.as !== 'fetch' || i.props.rel !== 'preload');
-    }
-
     replaceHeadComponents(header);
   }
 };
 
 exports.wrapRootElement = (
-    { element },
-    { removeGatsbyAnnouncer = false },
+  {
+    element,
+  },
+  {
+    removeGatsbyAnnouncer = false,
+  },
 ) => {
   if (isProduction) {
 
@@ -55,17 +70,6 @@ exports.wrapRootElement = (
         (i) => i.props.id !== 'gatsby-announcer',
       );
     }
-
-    // FIXME: broken in new version of Gatsby
-    // if (removeFocusWrapper) {
-    //   const index = element.props.children.findIndex(
-    //     (i) => i.props.id === 'gatsby-focus-wrapper',
-    //   );
-
-    //   if (index !== -1) {
-    //     element.props.children[index] = element.props.children[index].props.children;
-    //   }
-    // }
 
     return element;
   }
