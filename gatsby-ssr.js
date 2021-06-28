@@ -46,7 +46,7 @@ exports.onPreRenderHTML = (
 
 exports.wrapRootElement = (
     { element },
-    { removeGatsbyAnnouncer = false, removeFocusWrapper = false },
+    { removeGatsbyAnnouncer = false },
 ) => {
   if (isProduction) {
 
