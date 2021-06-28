@@ -1,12 +1,13 @@
 {
   "name": "gatsby-plugin-no-javascript-utils",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "The utils for static site without javascript",
   "main": "index.js",
   "scripts": {
     "lint": "eslint '**/*.js'"
   },
   "devDependencies": {
+    "@types/node": "^15.12.5",
     "eslint": "^7.29.0",
     "simple-git-hooks": "^2.5.1"
   },

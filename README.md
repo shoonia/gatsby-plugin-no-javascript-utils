@@ -102,20 +102,6 @@ The `<div id="gatsby-announcer" ⋯>` is announcing route changes in a single-pa
   </div>
 ```
 
-<!--- FIXME: broken in new version of Gatsby
-**`removeFocusWrapper: (default: false)`**
-
-Body focus wrapper is not needed if the site is fully static and does not use any JavaScript.
-
-```diff
-<body>
-<div id="___gatsby">
--  <div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper">
-    <div>Hello world!</div>
--  </div>
-```
--->
-
 **`removePreloadLinks: (default: false)`**
 
 Preloading data is not needed if the site does not use any JavaScript.
