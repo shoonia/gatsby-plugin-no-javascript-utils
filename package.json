@@ -6,6 +6,11 @@
   "peerDependencies": {
     "gatsby": "^2.0.0 || ^3.0.0"
   },
+  "peerDependenciesMeta": {
+    "gatsby": {
+      "optional": true
+    }
+  },
   "keywords": [
     "gatsby",
     "gatsby-plugin",
