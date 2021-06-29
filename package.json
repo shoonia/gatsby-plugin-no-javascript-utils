@@ -4,11 +4,14 @@
   "description": "The utils for static site without javascript",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint '**/*.js'"
+    "lint": "eslint '**/*.js'",
+    "test": "jest"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.23",
     "@types/node": "^15.12.5",
     "eslint": "^7.29.0",
+    "jest": "^27.0.6",
     "simple-git-hooks": "^2.5.1"
   },
   "peerDependencies": {

@@ -1,9 +1,23 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
+/**
+ * @param {{
+ * getHeadComponents(): any[]
+ * replaceHeadComponents(header: any[]): void
+ * }} apis
+ * @param {{
+ * removeGeneratorTag?: boolean
+ * removeReactHelmetAttrs?: boolean
+ * noInlineStyles?: boolean
+ * removePreloadLinks?: boolean
+ * }} options
+ */
 exports.onPreRenderHTML = (
   {
     getHeadComponents,
     replaceHeadComponents,
+    // getPostBodyComponents,
+    // replacePostBodyComponents,
   },
   {
     removeGeneratorTag = true,

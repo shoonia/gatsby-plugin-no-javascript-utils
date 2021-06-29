@@ -1,7 +1,6 @@
 {
   "env": {
     "es6": true,
-    "browser": true,
     "node": true,
     "jest": true
   },
@@ -42,6 +41,10 @@
     "comma-dangle": [
       "error",
       "always-multiline"
+    ],
+    "quote-props": [
+      "error",
+      "as-needed"
     ]
   }
 }
