@@ -25,7 +25,7 @@
     }
   },
   "simple-git-hooks": {
-    "pre-commit": "npm run lint"
+    "pre-commit": "npm run lint && npm test"
   },
   "keywords": [
     "gatsby",
