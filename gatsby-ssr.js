@@ -3,9 +3,12 @@ const isProduction = process.env.NODE_ENV === 'production';
 /**
  * @param {{
  * getHeadComponents(): any[]
- * replaceHeadComponents(header: any[]): void
+ * replaceHeadComponents(head: any[]): void
+ * getPostBodyComponents(): any[]
+ * replacePostBodyComponents(postBody: any[]): void
  * }} apis
  * @param {{
+ * noScript?: boolean
  * removeGeneratorTag?: boolean
  * removeReactHelmetAttrs?: boolean
  * noInlineStyles?: boolean
@@ -16,35 +19,40 @@ exports.onPreRenderHTML = (
   {
     getHeadComponents,
     replaceHeadComponents,
-    // getPostBodyComponents,
-    // replacePostBodyComponents,
+    getPostBodyComponents,
+    replacePostBodyComponents,
   },
   {
+    noScript = true,
     removeGeneratorTag = true,
     removeReactHelmetAttrs = true,
     noInlineStyles = false,
-    removePreloadLinks = false,
   },
 ) => {
   if (isProduction) {
-    let header = getHeadComponents();
+    let head = getHeadComponents();
+    let postBody = getPostBodyComponents();
 
-    if (removeGeneratorTag) {
-      header = header.filter(
-        (i) => i.type !== 'meta' || i.props.name !== 'generator',
+    if (noScript) {
+      head = head.filter(
+        (i) => i.type !== 'link' || i.props.rel !== 'preload' || !(i.props.as === 'script' || i.props.as === 'fetch'),
+      );
+
+      postBody = postBody.filter(
+        (i) => i.type !== 'script' || ('type' in i.props && i.props.type !== 'application/javascript'),
       );
     }
 
-    if (removePreloadLinks) {
-      header = header.filter(
-        (i) => i.type !== 'link' || i.props.as !== 'fetch' || i.props.rel !== 'preload',
+    if (removeGeneratorTag) {
+      head = head.filter(
+        (i) => i.type !== 'meta' || i.props.name !== 'generator',
       );
     }
 
     if (removeReactHelmetAttrs) {
       const key = 'data-react-helmet';
 
-      header.forEach((i) => {
+      head.forEach((i) => {
         if (key in i.props) {
           i.props[key] = undefined;
         }
@@ -54,7 +62,7 @@ exports.onPreRenderHTML = (
     if (noInlineStyles) {
       const key = 'data-href';
 
-      header.forEach((i) => {
+      head.forEach((i) => {
         if (i.type === 'style' && key in i.props) {
           i.type = 'link';
           i.props = {
@@ -65,7 +73,8 @@ exports.onPreRenderHTML = (
       });
     }
 
-    replaceHeadComponents(header);
+    replaceHeadComponents(head);
+    replacePostBodyComponents(postBody);
   }
 };
 
