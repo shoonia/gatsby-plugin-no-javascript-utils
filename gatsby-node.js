@@ -16,11 +16,11 @@ exports.onCreateWebpackConfig = (
 
 exports.pluginOptionsSchema = ({ Joi }) => {
   return Joi.object({
+    noScript: Joi.boolean(),
     noSourcemaps: Joi.boolean(),
     removeGeneratorTag: Joi.boolean(),
     removeReactHelmetAttrs: Joi.boolean(),
     noInlineStyles: Joi.boolean(),
     removeGatsbyAnnouncer: Joi.boolean(),
-    removePreloadLinks: Joi.boolean(),
   });
 };
