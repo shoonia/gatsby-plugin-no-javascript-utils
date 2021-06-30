@@ -67,9 +67,9 @@ Removes all scripts and preload links.
 - <link as="fetch" rel="preload" href="/page-data/index/page-data.json" crossorigin="anonymous"/>
 - <link as="script" rel="preload" href="/commons-04bd7a1d51d6af5d636b.js"/>
 
-  ...
+  ⋯
 
-- <script id="gatsby-chunk-mapping">...</script>
+- <script id="gatsby-chunk-mapping"> ⋯ </script>
 - <script src="/polyfill-fa0c516ee6a6b8206a36.js" nomodule=""></script>
 - <script src="/commons-04bd7a1d51d6af5d636b.js" async=""></script>
 </body>
