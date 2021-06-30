@@ -1,19 +1,24 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
 /**
- * @param {{
+ * @typedef {{
+ * noScript?: boolean
+ * noSourcemaps?: boolean
+ * removeGeneratorTag?: boolean
+ * removeReactHelmetAttrs?: boolean
+ * noInlineStyles?: boolean
+ * removeGatsbyAnnouncer?: boolean
+ * }} Options
+ *
+ * @typedef {{
  * getHeadComponents(): any[]
  * replaceHeadComponents(head: any[]): void
  * getPostBodyComponents(): any[]
  * replacePostBodyComponents(postBody: any[]): void
- * }} apis
- * @param {{
- * noScript?: boolean
- * removeGeneratorTag?: boolean
- * removeReactHelmetAttrs?: boolean
- * noInlineStyles?: boolean
- * removePreloadLinks?: boolean
- * }} options
+ * }} Api
+ *
+ * @param {Api} api
+ * @param {Options} options
  */
 exports.onPreRenderHTML = (
   {
