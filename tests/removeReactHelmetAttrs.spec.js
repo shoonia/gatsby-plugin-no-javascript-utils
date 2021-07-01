@@ -14,7 +14,6 @@ const getMock = () => [
   },
 ];
 
-
 describe('removeReactHelmetAttrs', () => {
   it('should remove data attrs', () => {
     const driver = new Driver();

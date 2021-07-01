@@ -58,7 +58,7 @@ module.exports = {
 
 **`noScript?: boolean (default: true)`**
 
-Removes all scripts and preload links.
+Removes all scripts and preload links for scripts and page-data fetching.
 
 ```diff
 <head>
@@ -77,7 +77,7 @@ Removes all scripts and preload links.
 
 **`noSourcemaps?: boolean (default: true)`**
 
-Disable generation of JavaScript sourcemaps
+Disable generation of JavaScript sourcemaps.
 
 **`removeGeneratorTag?: boolean (default: true)`**
 
@@ -93,7 +93,7 @@ Remove generator meta tag
 
 **`removeReactHelmetAttrs?: boolean (default: true)`**
 
-Removes react-helmet data attributes
+Removes react-helmet data attributes.
 
 ```diff
 - <html lang="en" data-react-helmet="lang"/>
