@@ -52,4 +52,18 @@ describe('removeReactHelmetAttrs', () => {
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith(getMock());
   });
+
+  it('should not break the build if in head components include an array', () => {
+    const driver = new Driver();
+
+    driver.mockHead([[]]);
+
+    onPreRenderHTML(
+      driver.api,
+      driver.enableAllWith(),
+    );
+
+    expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
+    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith([[]]);
+  });
 });

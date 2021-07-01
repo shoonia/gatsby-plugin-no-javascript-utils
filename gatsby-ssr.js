@@ -58,7 +58,7 @@ exports.onPreRenderHTML = (
       const key = 'data-react-helmet';
 
       head.forEach((i) => {
-        if (key in i.props) {
+        if ('props' in i && key in i.props) {
           i.props[key] = undefined;
         }
       });
