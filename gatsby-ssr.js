@@ -2,6 +2,13 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 /**
  * @typedef {{
+ * getHeadComponents(): any[]
+ * replaceHeadComponents(head: any[]): void
+ * getPostBodyComponents(): any[]
+ * replacePostBodyComponents(postBody: any[]): void
+ * }} Api
+ *
+ * @typedef {{
  * noScript?: boolean
  * noSourcemaps?: boolean
  * removeGeneratorTag?: boolean
@@ -9,13 +16,6 @@ const isProduction = process.env.NODE_ENV === 'production';
  * noInlineStyles?: boolean
  * removeGatsbyAnnouncer?: boolean
  * }} Options
- *
- * @typedef {{
- * getHeadComponents(): any[]
- * replaceHeadComponents(head: any[]): void
- * getPostBodyComponents(): any[]
- * replacePostBodyComponents(postBody: any[]): void
- * }} Api
  *
  * @param {Api} api
  * @param {Options} options
@@ -83,6 +83,11 @@ exports.onPreRenderHTML = (
   }
 };
 
+/**
+ * @param {{ element: Record<string, any> }} api
+ * @param {{ removeGatsbyAnnouncer?: boolean }} options
+ * @returns {Record<string, any> | undefined}
+ */
 exports.wrapRootElement = (
   {
     element,
