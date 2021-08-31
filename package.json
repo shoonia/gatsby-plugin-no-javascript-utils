@@ -8,13 +8,13 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.14.7",
-    "@babel/preset-env": "^7.14.7",
-    "@types/jest": "^26.0.23",
-    "@types/node": "^15.12.5",
-    "eslint": "^7.29.0",
-    "jest": "^27.0.6",
-    "simple-git-hooks": "^2.5.1"
+    "@babel/eslint-parser": "^7.15.0",
+    "@babel/preset-env": "^7.15.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.8",
+    "eslint": "^7.32.0",
+    "jest": "^27.1.0",
+    "simple-git-hooks": "^2.6.1"
   },
   "peerDependencies": {
     "gatsby": "^2.0.0 || ^3.0.0"
