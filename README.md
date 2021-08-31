@@ -93,7 +93,7 @@ Remove generator meta tag
 
 **`removeReactHelmetAttrs?: boolean (default: true)`**
 
-Removes react-helmet data attributes.
+Removes [react-helmet](https://github.com/nfl/react-helmet) data attributes.
 
 ```diff
 - <html lang="en" data-react-helmet="lang"/>
