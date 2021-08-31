@@ -8,6 +8,7 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.0",
     "@babel/eslint-parser": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@types/jest": "^27.0.1",

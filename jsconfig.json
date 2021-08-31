@@ -12,7 +12,7 @@
   },
   "include": [
     "**/*.js",
-    "util/**/*.js"
+    "tests/**/*.js"
   ],
   "exclude": [
     "node_modules"
