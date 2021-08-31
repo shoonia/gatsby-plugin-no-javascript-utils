@@ -14,7 +14,7 @@ describe('all v3.8.1', () => {
           'data-href': '/styles.ba9894c6f3837a50e142.css',
           'data-identity': 'gatsby-global-css',
           dangerouslySetInnerHTML: {
-            __html: '.main-module--post--JaqUm{border-bottom:1px solid rgba(0,0,0,.1)}',
+            __html: '.main{border-bottom:1px solid rgba(0,0,0,.1)}',
           },
         },
         _owner: null,
@@ -31,11 +31,11 @@ describe('all v3.8.1', () => {
       },
       {
         type: 'title',
-        key: 'Velo by Wix: The utils for repeated item scope event handlers | Web Development Blog',
+        key: 'Web Development Blog',
         ref: null,
         props: {
           'data-react-helmet': true,
-          children: 'Velo by Wix: The utils for repeated item scope event handlers | Web Development Blog',
+          children: 'Web Development Blog',
         },
         _owner: null,
       },
@@ -47,7 +47,7 @@ describe('all v3.8.1', () => {
           'data-react-helmet': true,
           type: 'application/ld+json',
           dangerouslySetInnerHTML: {
-            __html: '{"@context":"https://schema.org","@type":"BlogPosting","name":"Alexander Zaytsev | Web Development Blog","headline":"Velo by Wix: The utils for repeated item scope event handlers","description":"npm library with utils for event handlers in Repeater","inLanguage":"en","url":"https://shoonia.site/the-utils-for-repeated-item-scope-event-handlers","datePublished":"2021-06-23T12:00:00.000Z","dateModified":"2021-06-23T12:00:00.000Z","author":{"@type":"Person","name":"Alexander Zaytsev"},"publisher":{"@type":"Organization","name":"Alexander Zaytsev","email":"zaytsev126@gmail.com","sameAs":"https://twitter.com/_shoonia","logo":{"@type":"ImageObject","url":"https://shoonia.site/icons/icon-512x512.png"}},"image":{"@type":"ImageObject","url":"https://shoonia.site/images/velo.png"},"mainEntityOfPage":{"@type":"itemPage","@id":"https://shoonia.site/the-utils-for-repeated-item-scope-event-handlers","url":"https://shoonia.site/the-utils-for-repeated-item-scope-event-handlers"}}',
+            __html: '{}',
           },
         },
         _owner: null,
@@ -143,10 +143,10 @@ describe('all v3.8.1', () => {
       },
       {
         type: 'title',
-        key: 'Velo by Wix: The utils for repeated item scope event handlers | Web Development Blog',
+        key: 'Web Development Blog',
         ref: null,
         props: {
-          children: 'Velo by Wix: The utils for repeated item scope event handlers | Web Development Blog',
+          children: 'Web Development Blog',
         },
         _owner: null,
       },
@@ -157,7 +157,7 @@ describe('all v3.8.1', () => {
         props: {
           type: 'application/ld+json',
           dangerouslySetInnerHTML: {
-            __html: '{"@context":"https://schema.org","@type":"BlogPosting","name":"Alexander Zaytsev | Web Development Blog","headline":"Velo by Wix: The utils for repeated item scope event handlers","description":"npm library with utils for event handlers in Repeater","inLanguage":"en","url":"https://shoonia.site/the-utils-for-repeated-item-scope-event-handlers","datePublished":"2021-06-23T12:00:00.000Z","dateModified":"2021-06-23T12:00:00.000Z","author":{"@type":"Person","name":"Alexander Zaytsev"},"publisher":{"@type":"Organization","name":"Alexander Zaytsev","email":"zaytsev126@gmail.com","sameAs":"https://twitter.com/_shoonia","logo":{"@type":"ImageObject","url":"https://shoonia.site/icons/icon-512x512.png"}},"image":{"@type":"ImageObject","url":"https://shoonia.site/images/velo.png"},"mainEntityOfPage":{"@type":"itemPage","@id":"https://shoonia.site/the-utils-for-repeated-item-scope-event-handlers","url":"https://shoonia.site/the-utils-for-repeated-item-scope-event-handlers"}}',
+            __html: '{}',
           },
         },
         _owner: null,
