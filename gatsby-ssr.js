@@ -85,7 +85,7 @@ exports.onPreRenderHTML = (
 
 /**
  * @param {{ element: Record<string, any> }} api
- * @param {{ removeGatsbyAnnouncer?: boolean }} options
+ * @param {Options} options
  * @returns {Record<string, any> | undefined}
  */
 exports.wrapRootElement = (
