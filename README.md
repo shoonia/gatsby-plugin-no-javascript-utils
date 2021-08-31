@@ -111,7 +111,9 @@ Replacing `<style data-href>` tag with `<link>` tag for reducing the size of HTM
 
 **`removeGatsbyAnnouncer?: boolean (default: false)`**
 
-The `<div id="gatsby-announcer" ⋯>` is announcing route changes in a single-page application where the pages update without a reload. It may be unnecessary on a static sites.
+The `<div id="gatsby-announcer" ⋯>` is announcing route changes in a single-page application where the pages update without a reload.  It may be unnecessary on a static sites when you don't use any JavaScript.
+
+More: [Accessibility Improvements to Client Side Routing in Gatsby](https://www.gatsbyjs.com/blog/2020-02-10-accessible-client-side-routing-improvements/)
 
 ```diff
 <body>
