@@ -59,7 +59,7 @@ exports.onPreRenderHTML = (
 
       head.forEach((i) => {
         if ('props' in i && key in i.props) {
-          i.props[key] = undefined;
+          delete i.props[key];
         }
       });
     }
