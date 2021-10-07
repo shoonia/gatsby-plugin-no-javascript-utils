@@ -8,14 +8,14 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/eslint-parser": "^7.15.4",
-    "@babel/preset-env": "^7.15.6",
-    "@types/jest": "^27.0.1",
-    "@types/node": "^16.9.1",
+    "@babel/core": "^7.15.8",
+    "@babel/eslint-parser": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.10.3",
     "eslint": "^7.32.0",
-    "gatsby-plugin-utils": "^1.13.0",
-    "jest": "^27.1.1",
+    "gatsby-plugin-utils": "^1.14.0",
+    "jest": "^27.2.4",
     "simple-git-hooks": "^2.6.1"
   },
   "peerDependencies": {
