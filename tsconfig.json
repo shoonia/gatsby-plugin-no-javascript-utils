@@ -1,13 +1,14 @@
 {
-  "allowJs": true,
   "compilerOptions": {
     "checkJs": true,
-    "module": "es2020",
-    "moduleResolution": "node",
-    "target": "es2020",
+    "allowJs": true,
+    "module": "ES2020",
+    "moduleResolution": "Node",
+    "target": "ES2021",
     "sourceMap": false,
+    "noEmit": true,
     "lib": [
-      "es2020"
+      "ES2021"
     ]
   },
   "include": [
@@ -15,6 +16,6 @@
     "tests/**/*.js"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules/"
   ]
 }
