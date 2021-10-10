@@ -1,11 +1,6 @@
 class Driver {
-  #head;
-  #postBody;
-
-  constructor() {
-    this.#head = [];
-    this.#postBody = [];
-  }
+  #head = [];
+  #postBody = [];
 
   /**
    * @param {any[]} nodes

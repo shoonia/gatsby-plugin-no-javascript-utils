@@ -1,5 +1,11 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
+const scriptType = new Set([
+  'module',
+  'text/javascript',
+  'application/javascript',
+]);
+
 /**
  * @typedef {{
  * getHeadComponents(): any[]
@@ -44,7 +50,7 @@ exports.onPreRenderHTML = (
       );
 
       postBody = postBody.filter(
-        (i) => i.type !== 'script' || ('type' in i.props && i.props.type !== 'application/javascript'),
+        (i) => i.type !== 'script' || ('type' in i.props && !scriptType.has(i.props.type)),
       );
     }
 

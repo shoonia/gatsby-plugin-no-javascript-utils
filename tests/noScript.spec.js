@@ -51,4 +51,70 @@ describe('noScript', () => {
       },
     ]);
   });
+
+  it('should remove scripts', () => {
+    const driver = new Driver();
+
+    driver.mockPostBody([
+      {
+        type: 'script',
+        key: '1',
+        ref: null,
+        props: {
+          type: 'text/javascript',
+          dangerouslySetInnerHTML: {
+            __html: 'let x = 100;',
+          },
+        },
+        _owner: null,
+      },
+      {
+        type: 'script',
+        key: '2',
+        ref: null,
+        props: {
+          type: 'application/javascript',
+          dangerouslySetInnerHTML: {
+            __html: 'let y = 100;',
+          },
+        },
+        _owner: null,
+      },
+    ]);
+
+    onPreRenderHTML(
+      driver.api,
+      driver.disableAllWith({ noScript: true }),
+    );
+
+    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
+    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([]);
+  });
+
+  it('should remove a module script', () => {
+    const driver = new Driver();
+
+    driver.mockPostBody([
+      {
+        type: 'script',
+        key: '1',
+        ref: null,
+        props: {
+          type: 'module',
+          dangerouslySetInnerHTML: {
+            __html: 'let x = 100;',
+          },
+        },
+        _owner: null,
+      },
+    ]);
+
+    onPreRenderHTML(
+      driver.api,
+      driver.disableAllWith({ noScript: true }),
+    );
+
+    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
+    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([]);
+  });
 });
