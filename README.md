@@ -23,6 +23,7 @@ module.exports = {
     title: 'Blog',
     description: 'Web Blog',
   },
+  polyfill: false,
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-postcss',
