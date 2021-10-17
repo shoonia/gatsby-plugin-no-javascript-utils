@@ -20,10 +20,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-
+      - run: npm ci
       - run: npm test
 
   lint:
@@ -36,8 +35,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16.x'
+          cache: 'npm'
 
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-
+      - run: npm ci
       - run: npm run lint
