@@ -97,7 +97,7 @@ describe('all v3.8.1', () => {
         props: {
           id: 'gatsby-chunk-mapping',
           dangerouslySetInnerHTML: {
-            __html: '/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-fa0ce16e96a65820ea36.js"],"app":["/app-45db90d0dadec37bb48d.js"],"component---src-pages-404-jsx":["/component---src-pages-404-jsx-741c03740fc9b85b5ba1.js"],"component---src-pages-index-jsx":["/component---src-pages-index-jsx-cece42efe51515412608.js"],"component---src-templates-post-jsx":["/component---src-templates-post-jsx-5552dd8a98322adcb231.js"]};/*]]>*/',
+            __html: '/*<![CDATA[*/window.___chunkMapping={};/*]]>*/',
           },
         },
         _owner: null,
