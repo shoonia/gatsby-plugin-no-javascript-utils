@@ -4,7 +4,7 @@
 
 The utils for static site without JavaScript
 
-Support Gatsby v2 and v3
+Support Gatsby v2, v3 and v4
 
 ## Install
 
