@@ -51,6 +51,8 @@ module.exports = {
         removeReactHelmetAttrs: true,
         noInlineStyles: false,
         removeGatsbyAnnouncer: false,
+        filterHeadComponents: undefined,
+        filterPostBodyComponents: undefined,
       },
     },
   ],
@@ -122,6 +124,41 @@ More: [Accessibility Improvements to Client Side Routing in Gatsby](https://www.
     <div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"> ⋯ </div>
 -   <div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div>
   </div>
+```
+
+### Custom filters
+
+You can use a custom filter for removing a specific elements.
+
+```
+filterHeadComponents?: (node: any, index: number, arr: any[]) => boolean (default: undefined)
+
+filterPostBodyComponents?: (node: any, index: number, arr: any[]) => boolean (default: undefined)
+```
+
+```js
+// In your gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: 'gatsby-plugin-no-javascript-utils',
+      options: {
+        filterHeadComponents: (node, index, arr) => {
+          // Removes <script> and <style> form "gatsby-remark-autolink-headers" plugin
+          const script = 'gatsby-remark-autolink-headers-script';
+          const style = 'gatsby-remark-autolink-headers-style';
+
+          return node?.key !== script && node?.key !== style;
+        },
+
+        filterPostBodyComponents: (node, index, arr) => {
+          // Remove all post body components
+          return false;
+        },
+      },
+    },
+  ],
+}
 ```
 
 ## License

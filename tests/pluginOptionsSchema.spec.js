@@ -30,6 +30,16 @@ describe('Options Schema', () => {
     expect(errors).toEqual([]);
   });
 
+  it('should be valid with `undefined` filter options', async () => {
+    const { isValid, errors } = await testSchema({
+      filterHeadComponents: undefined,
+      filterPostBodyComponents: undefined,
+    });
+
+    expect(isValid).toBe(true);
+    expect(errors).toEqual([]);
+  });
+
   it('should be invalid schema', async () => {
     const { isValid, errors } = await testSchema({
       noScript: 'string',
