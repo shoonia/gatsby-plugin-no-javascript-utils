@@ -128,7 +128,7 @@ More: [Accessibility Improvements to Client Side Routing in Gatsby](https://www.
 
 ### Custom filters
 
-You can use a custom filter for removing a specific elements.
+You can use a custom filters for removing a specific elements.
 
 ```
 filterHeadComponents?: (node: any, index: number, arr: any[]) => boolean (default: undefined)
