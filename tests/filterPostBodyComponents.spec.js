@@ -28,14 +28,11 @@ describe('filterPostBodyComponents', () => {
       },
     ]);
 
-    onPreRenderHTML(
-      driver.api,
-      driver.disableAllWith({
-        filterPostBodyComponents(node) {
-          return node?.key !== 'script-element-111';
-        },
-      }),
-    );
+    driver.apply(onPreRenderHTML).disableAllWith({
+      filterPostBodyComponents(node) {
+        return node?.key !== 'script-element-111';
+      },
+    }),
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([

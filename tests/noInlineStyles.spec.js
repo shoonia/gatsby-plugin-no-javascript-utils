@@ -19,12 +19,9 @@ describe('noInlineStyles', () => {
   it('should replace style tag to link', () => {
     const driver = new Driver();
 
-    driver.mockHead(getMock());
-
-    onPreRenderHTML(
-      driver.api,
-      driver.disableAllWith({ noInlineStyles: true }),
-    );
+    driver.mockHead(getMock()).apply(onPreRenderHTML).disableAllWith({
+      noInlineStyles: true,
+    });
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith([
@@ -45,12 +42,7 @@ describe('noInlineStyles', () => {
   it('should replace tag', () => {
     const driver = new Driver();
 
-    driver.mockHead(getMock());
-
-    onPreRenderHTML(
-      driver.api,
-      driver.disableAllWith(),
-    );
+    driver.mockHead(getMock()).apply(onPreRenderHTML).disableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith(getMock());

@@ -7,6 +7,8 @@ class Driver {
    */
   mockHead(nodes) {
     this.#head.push(...nodes);
+
+    return this;
   }
 
   /**
@@ -14,39 +16,44 @@ class Driver {
    */
   mockPostBody(nodes) {
     this.#postBody.push(...nodes);
+
+    return this;
   }
 
   /**
-   * @typedef {import('../gatsby-ssr').Options} Options
-   *
-   * @param {Options} [options]
-   * @returns {Options}
+   * @param {(...any) => any} onPreRenderHTML
    */
-  enableAllWith(options) {
+  apply(onPreRenderHTML) {
     return {
-      noScript: true,
-      noSourcemaps: true,
-      removeGeneratorTag: true,
-      removeReactHelmetAttrs: true,
-      noInlineStyles: true,
-      removeGatsbyAnnouncer: true,
-      ...options,
-    };
-  }
+      /**
+       * @param {import('../gatsby-ssr').Options} [options]
+       */
+      enableAllWith: (options) => {
+        onPreRenderHTML(this.api, {
+          noScript: true,
+          noSourcemaps: true,
+          removeGeneratorTag: true,
+          removeReactHelmetAttrs: true,
+          noInlineStyles: true,
+          removeGatsbyAnnouncer: true,
+          ...options,
+        });
+      },
 
-  /**
-   * @param {Options} [options]
-   * @returns {Options}
-   */
-  disableAllWith(options) {
-    return {
-      noScript: false,
-      noSourcemaps: false,
-      removeGeneratorTag: false,
-      removeReactHelmetAttrs: false,
-      noInlineStyles: false,
-      removeGatsbyAnnouncer: false,
-      ...options,
+      /**
+       * @param {import('../gatsby-ssr').Options} [options]
+       */
+      disableAllWith: (options) => {
+        onPreRenderHTML(this.api, {
+          noScript: false,
+          noSourcemaps: false,
+          removeGeneratorTag: false,
+          removeReactHelmetAttrs: false,
+          noInlineStyles: false,
+          removeGatsbyAnnouncer: false,
+          ...options,
+        });
+      },
     };
   }
 

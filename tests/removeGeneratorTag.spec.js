@@ -28,12 +28,9 @@ describe('removeGeneratorTag', () => {
   it('should remove generator tag', () => {
     const driver = new Driver();
 
-    driver.mockHead(getMock());
-
-    onPreRenderHTML(
-      driver.api,
-      driver.disableAllWith({ removeGeneratorTag: true }),
-    );
+    driver.mockHead(getMock()).apply(onPreRenderHTML).disableAllWith({
+      removeGeneratorTag: true,
+    });
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith([
@@ -53,12 +50,7 @@ describe('removeGeneratorTag', () => {
   it('should not remove generator tag', () => {
     const driver = new Driver();
 
-    driver.mockHead(getMock());
-
-    onPreRenderHTML(
-      driver.api,
-      driver.disableAllWith(),
-    );
+    driver.mockHead(getMock()).apply(onPreRenderHTML).disableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith(getMock());
