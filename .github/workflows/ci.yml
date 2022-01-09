@@ -2,16 +2,17 @@ name: ci
 
 on:
   push:
-    branches: master
   pull_request:
-    branches: master
 
 jobs:
   test:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version:
+          - 12.x
+          - 14.x
+          - 16.x
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2
@@ -22,7 +23,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps
       - run: npm test
 
   lint:
@@ -37,5 +38,5 @@ jobs:
           node-version: '16.x'
           cache: 'npm'
 
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps
       - run: npm run lint
