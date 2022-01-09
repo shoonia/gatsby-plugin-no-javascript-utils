@@ -146,11 +146,8 @@ module.exports = {
       resolve: 'gatsby-plugin-no-javascript-utils',
       options: {
         filterHeadComponents: (node, index, arr) => {
-          // Removes <script> and <style> form "gatsby-remark-autolink-headers" plugin
-          const script = 'gatsby-remark-autolink-headers-script';
-          const style = 'gatsby-remark-autolink-headers-style';
-
-          return node?.key !== script && node?.key !== style;
+          // Remove all script components
+          return node?.type !== 'script';
         },
 
         filterPostBodyComponents: (node, index, arr) => {
