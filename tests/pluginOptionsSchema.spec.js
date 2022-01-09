@@ -1,4 +1,3 @@
-
 const { testPluginOptionsSchema } = require('gatsby-plugin-utils');
 
 const { pluginOptionsSchema } = require('../gatsby-node');
@@ -23,6 +22,18 @@ describe('Options Schema', () => {
       removeReactHelmetAttrs: true,
       noInlineStyles: true,
       removeGatsbyAnnouncer: true,
+      filterHeadComponents: () => true,
+      filterPostBodyComponents: () => true,
+    });
+
+    expect(isValid).toBe(true);
+    expect(errors).toEqual([]);
+  });
+
+  it('should be valid with `undefined` filter options', async () => {
+    const { isValid, errors } = await testSchema({
+      filterHeadComponents: undefined,
+      filterPostBodyComponents: undefined,
     });
 
     expect(isValid).toBe(true);
@@ -37,6 +48,8 @@ describe('Options Schema', () => {
       removeReactHelmetAttrs: 'string',
       noInlineStyles: 'string',
       removeGatsbyAnnouncer: 'string',
+      filterHeadComponents: 'string',
+      filterPostBodyComponents: 'string',
     });
 
     expect(isValid).toBe(false);
@@ -47,6 +60,8 @@ describe('Options Schema', () => {
       '"removeReactHelmetAttrs" must be a boolean',
       '"noInlineStyles" must be a boolean',
       '"removeGatsbyAnnouncer" must be a boolean',
+      '"filterHeadComponents" must be of type function',
+      '"filterPostBodyComponents" must be of type function',
     ]);
   });
 });

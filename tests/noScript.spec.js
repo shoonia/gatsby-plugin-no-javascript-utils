@@ -30,10 +30,9 @@ describe('noScript', () => {
       },
     ]);
 
-    onPreRenderHTML(
-      driver.api,
-      driver.disableAllWith({ noScript: true }),
-    );
+    driver.apply(onPreRenderHTML).disableAllWith({
+      noScript: true,
+    });
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([
@@ -82,10 +81,9 @@ describe('noScript', () => {
       },
     ]);
 
-    onPreRenderHTML(
-      driver.api,
-      driver.disableAllWith({ noScript: true }),
-    );
+    driver.apply(onPreRenderHTML).disableAllWith({
+      noScript: true,
+    });
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([]);
@@ -109,10 +107,9 @@ describe('noScript', () => {
       },
     ]);
 
-    onPreRenderHTML(
-      driver.api,
-      driver.disableAllWith({ noScript: true }),
-    );
+    driver.apply(onPreRenderHTML).disableAllWith({
+      noScript: true,
+    });
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([]);
