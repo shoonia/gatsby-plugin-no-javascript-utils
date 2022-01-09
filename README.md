@@ -136,6 +136,8 @@ filterHeadComponents?: (node: any, index: number, arr: any[]) => boolean (defaul
 filterPostBodyComponents?: (node: any, index: number, arr: any[]) => boolean (default: undefined)
 ```
 
+**Example**
+
 ```js
 // In your gatsby-config.js
 module.exports = {
