@@ -21,8 +21,6 @@ const scriptType = new Set([
  * removeReactHelmetAttrs?: boolean
  * noInlineStyles?: boolean
  * removeGatsbyAnnouncer?: boolean
- * filterHeadComponents?(node: any, index: number, arr: any[]): boolean;
- * filterPostBodyComponents?(node: any, index: number, arr: any[]): boolean;
  * }} Options
  *
  * @param {Api} api
@@ -40,21 +38,11 @@ exports.onPreRenderHTML = (
     removeGeneratorTag = true,
     removeReactHelmetAttrs = true,
     noInlineStyles = false,
-    filterHeadComponents = null,
-    filterPostBodyComponents = null,
   },
 ) => {
   if (isProduction) {
     let head = getHeadComponents();
     let postBody = getPostBodyComponents();
-
-    if (typeof filterHeadComponents === 'function') {
-      head = head.filter(filterHeadComponents);
-    }
-
-    if (typeof filterPostBodyComponents === 'function') {
-      postBody = postBody.filter(filterPostBodyComponents);
-    }
 
     if (noScript) {
       head = head.filter(
