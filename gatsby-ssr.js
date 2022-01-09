@@ -48,6 +48,14 @@ exports.onPreRenderHTML = (
     let head = getHeadComponents();
     let postBody = getPostBodyComponents();
 
+    if (typeof filterHeadComponents === 'function') {
+      head = head.filter(filterHeadComponents);
+    }
+
+    if (typeof filterPostBodyComponents === 'function') {
+      postBody = postBody.filter(filterPostBodyComponents);
+    }
+
     if (noScript) {
       head = head.filter(
         (i) => i.type !== 'link' || i.props.rel !== 'preload' || !(i.props.as === 'script' || i.props.as === 'fetch'),
@@ -86,14 +94,6 @@ exports.onPreRenderHTML = (
           };
         }
       });
-    }
-
-    if (typeof filterHeadComponents === 'function') {
-      head = head.filter(filterHeadComponents);
-    }
-
-    if (typeof filterPostBodyComponents === 'function') {
-      postBody = postBody.filter(filterPostBodyComponents);
     }
 
     replaceHeadComponents(head);
