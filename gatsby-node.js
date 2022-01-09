@@ -22,5 +22,7 @@ exports.pluginOptionsSchema = ({ Joi }) => {
     removeReactHelmetAttrs: Joi.boolean(),
     noInlineStyles: Joi.boolean(),
     removeGatsbyAnnouncer: Joi.boolean(),
+    filterHeadComponents: Joi.function(),
+    filterPostBodyComponents: Joi.function(),
   });
 };
