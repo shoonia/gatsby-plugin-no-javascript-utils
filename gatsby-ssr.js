@@ -2,6 +2,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const scriptType = new Set([
   'module',
+  'importmap',
   'text/javascript',
   'application/javascript',
 ]);
