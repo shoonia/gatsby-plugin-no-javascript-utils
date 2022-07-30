@@ -10,7 +10,6 @@ jobs:
     strategy:
       matrix:
         node-version:
-          - 12
           - 14
           - 16
           - 18
@@ -36,7 +35,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: npm
 
       - run: npm ci --legacy-peer-deps
