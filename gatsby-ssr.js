@@ -37,7 +37,7 @@ exports.onPreRenderHTML = (
   {
     noScript = true,
     removeGeneratorTag = true,
-    removeReactHelmetAttrs = true,
+    removeReactHelmetAttrs = false, // Deprecated
     noInlineStyles = false,
   },
 ) => {

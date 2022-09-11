@@ -19,7 +19,7 @@ exports.pluginOptionsSchema = ({ Joi }) => {
     noScript: Joi.boolean(),
     noSourcemaps: Joi.boolean(),
     removeGeneratorTag: Joi.boolean(),
-    removeReactHelmetAttrs: Joi.boolean(),
+    removeReactHelmetAttrs: Joi.boolean().warning('Deprecated'),
     noInlineStyles: Joi.boolean(),
     removeGatsbyAnnouncer: Joi.boolean(),
   });
