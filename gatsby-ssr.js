@@ -20,6 +20,7 @@ const scriptType = new Set([
  * noSourcemaps?: boolean
  * removeGeneratorTag?: boolean
  * removeReactHelmetAttrs?: boolean
+ * removeHeadDataAttrs?: boolean
  * noInlineStyles?: boolean
  * removeGatsbyAnnouncer?: boolean
  * }} Options
@@ -38,6 +39,7 @@ exports.onPreRenderHTML = (
     noScript = true,
     removeGeneratorTag = true,
     removeReactHelmetAttrs = false, // Deprecated
+    removeHeadDataAttrs = true,
     noInlineStyles = false,
   },
 ) => {
@@ -61,12 +63,19 @@ exports.onPreRenderHTML = (
       );
     }
 
-    if (removeReactHelmetAttrs) {
-      const key = 'data-react-helmet';
+    if (removeHeadDataAttrs || removeReactHelmetAttrs) {
+      const gatsbyHead = 'data-gatsby-head';
+      const reactHelmet = 'data-react-helmet';
 
       head.forEach((i) => {
-        if ('props' in i && key in i.props) {
-          delete i.props[key];
+        if ('props' in i) {
+          if (gatsbyHead in i.props) {
+            delete i.props[gatsbyHead];
+          }
+
+          if (reactHelmet in i.props) {
+            delete i.props[reactHelmet];
+          }
         }
       });
     }

@@ -20,6 +20,7 @@ describe('Options Schema', () => {
       noSourcemaps: true,
       removeGeneratorTag: true,
       removeReactHelmetAttrs: true,
+      removeHeadDataAttrs: true,
       noInlineStyles: true,
       removeGatsbyAnnouncer: true,
     });
@@ -36,6 +37,7 @@ describe('Options Schema', () => {
       removeReactHelmetAttrs: 'string',
       noInlineStyles: 'string',
       removeGatsbyAnnouncer: 'string',
+      removeHeadDataAttrs: 'string',
     });
 
     expect(isValid).toBe(false);
@@ -44,6 +46,7 @@ describe('Options Schema', () => {
       '"noSourcemaps" must be a boolean',
       '"removeGeneratorTag" must be a boolean',
       '"removeReactHelmetAttrs" must be a boolean',
+      '"removeHeadDataAttrs" must be a boolean',
       '"noInlineStyles" must be a boolean',
       '"removeGatsbyAnnouncer" must be a boolean',
     ]);

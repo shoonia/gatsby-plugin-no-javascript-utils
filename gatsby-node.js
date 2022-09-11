@@ -20,6 +20,7 @@ exports.pluginOptionsSchema = ({ Joi }) => {
     noSourcemaps: Joi.boolean(),
     removeGeneratorTag: Joi.boolean(),
     removeReactHelmetAttrs: Joi.boolean().warning('Deprecated'),
+    removeHeadDataAttrs: Joi.boolean(),
     noInlineStyles: Joi.boolean(),
     removeGatsbyAnnouncer: Joi.boolean(),
   });

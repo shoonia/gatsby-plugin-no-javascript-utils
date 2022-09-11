@@ -48,7 +48,7 @@ module.exports = {
         noScript: true,
         noSourcemaps: true,
         removeGeneratorTag: true,
-        removeReactHelmetAttrs: true,
+        removeHeadDataAttrs: true,
         noInlineStyles: false,
         removeGatsbyAnnouncer: false,
       },
@@ -63,10 +63,10 @@ Removes all scripts and preload links for scripts and page-data fetching.
 
 ```diff
 <head>
-  <meta charSet="utf-8"/>
-  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-- <link as="fetch" rel="preload" href="/page-data/index/page-data.json" crossorigin="anonymous"/>
-- <link as="script" rel="preload" href="/commons-04bd7a1d51d6af5d636b.js"/>
+  <meta charSet="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+- <link as="fetch" rel="preload" href="/page-data/index/page-data.json" crossorigin="anonymous">
+- <link as="script" rel="preload" href="/commons-04bd7a1d51d6af5d636b.js">
 
   ⋯
 
@@ -86,19 +86,21 @@ Remove generator meta tag
 
 ```diff
 <head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-- <meta name="generator" content="Gatsby 2.21.4"/>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+- <meta name="generator" content="Gatsby 2.21.4">
   <title>My Blog</title>
 ```
 
-**`removeReactHelmetAttrs?: boolean (default: true)`**
+**`removeHeadDataAttrs?: boolean (default: true)`**
 
-Removes [react-helmet](https://github.com/nfl/react-helmet) data attributes.
+Removes [data-react-helmet](https://github.com/nfl/react-helmet) and [data-gatsby-head](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/) data attributes
 
 ```diff
-- <html lang="en" data-react-helmet="lang"/>
-+ <html lang="en"/>
+- <html lang="en" data-react-helmet="lang">
+- <meta name="description" content="my blog" data-gatsby-head="true">
++ <html lang="en">
++ <meta name="description" content="my blog">
 ```
 
 **`noInlineStyles?: boolean (default: false)`**
@@ -107,7 +109,7 @@ Replacing `<style data-href>` tag with `<link>` tag for reducing the size of HTM
 
 ```diff
 - <style data-href="/styles.457cfd10c24f55260d5a.css"> ⋯ </style>
-+ <link rel="stylesheet" href="/styles.457cfd10c24f55260d5a.css"/>
++ <link rel="stylesheet" href="/styles.457cfd10c24f55260d5a.css">
 ```
 
 **`removeGatsbyAnnouncer?: boolean (default: false)`**
