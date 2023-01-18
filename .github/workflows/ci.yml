@@ -9,27 +9,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        node-version:
-          - 14
-          - 16
-          - 18
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: npm
-
-      - run: npm ci --legacy-peer-deps
-      - run: npm test
-
-  lint:
-    runs-on: ubuntu-20.04
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
@@ -42,3 +21,4 @@ jobs:
 
       - run: npm ci --legacy-peer-deps
       - run: npm run lint
+      - run: npm test
