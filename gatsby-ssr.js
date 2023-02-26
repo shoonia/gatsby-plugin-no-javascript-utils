@@ -53,7 +53,7 @@ exports.onPreRenderHTML = (
       );
 
       postBody = postBody.filter(
-        (i) => i.type !== 'script' || ('type' in i.props && !scriptType.has(i.props.type)),
+        (i) => i.type !== 'script' || !(i.props.sliceId && i.props.sliceId === '_gatsby-scripts') || ('type' in i.props && !scriptType.has(i.props.type)),
       );
     }
 
