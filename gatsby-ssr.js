@@ -114,7 +114,7 @@ exports.wrapRootElement = (
 ) => {
   if (isProduction) {
 
-    if (removeGatsbyAnnouncer) {
+    if (removeGatsbyAnnouncer && Array.isArray(element.props.children)) {
       element.props.children = element.props.children.filter(
         (i) => i.props.id !== 'gatsby-announcer',
       );
