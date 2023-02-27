@@ -52,9 +52,18 @@ exports.onPreRenderHTML = (
         (i) => i.type !== 'link' || i.props.rel !== 'preload' || !(i.props.as === 'script' || i.props.as === 'fetch'),
       );
 
-      postBody = postBody.filter(
-        (i) => i.type !== 'script' || ('type' in i.props && !scriptType.has(i.props.type)),
-      );
+      postBody = postBody.filter((i) => {
+        if (i.type === 'script' && (!i.props.type || scriptType.has(i.props.type))) {
+          return false;
+        }
+
+        // Gatsby v5
+        if (i.props.sliceId === '_gatsby-scripts') {
+          return false;
+        }
+
+        return true;
+      });
     }
 
     if (removeGeneratorTag) {
@@ -64,7 +73,7 @@ exports.onPreRenderHTML = (
     }
 
     if (removeHeadDataAttrs || removeReactHelmetAttrs) {
-      const gatsbyHead = 'data-gatsby-head';
+      const gatsbyHead = 'data-gatsby-head'; // Gatsby v4.19.0
       const reactHelmet = 'data-react-helmet';
 
       head.forEach((i) => {
