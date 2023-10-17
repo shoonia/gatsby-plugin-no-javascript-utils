@@ -8,12 +8,12 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@evilmartians/lefthook": "^1.4.7",
-    "@types/jest": "^29.5.3",
-    "@types/node": "^20.4.5",
-    "eslint": "^8.46.0",
-    "gatsby-plugin-utils": "^4.11.0",
-    "jest": "^29.6.2"
+    "@evilmartians/lefthook": "^1.5.2",
+    "@types/jest": "^29.5.5",
+    "@types/node": "^20.8.6",
+    "eslint": "^8.51.0",
+    "gatsby-plugin-utils": "^4.12.1",
+    "jest": "^29.7.0"
   },
   "peerDependencies": {
     "gatsby": "^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0"
