@@ -9,10 +9,10 @@
   },
   "devDependencies": {
     "@evilmartians/lefthook": "^1.5.2",
-    "@types/jest": "^29.5.5",
-    "@types/node": "^20.8.6",
-    "eslint": "^8.51.0",
-    "gatsby-plugin-utils": "^4.12.1",
+    "@types/jest": "^29.5.6",
+    "@types/node": "^20.8.8",
+    "eslint": "^8.52.0",
+    "gatsby-plugin-utils": "^4.12.2",
     "jest": "^29.7.0"
   },
   "peerDependencies": {
@@ -46,7 +46,7 @@
   "author": {
     "name": "Alexander Zaytsev",
     "email": "zaytsev126@gmail.com",
-    "url": "https://twitter.com/_shoonia"
+    "url": "https://x.com/_shoonia"
   },
   "homepage": "https://github.com/shoonia/gatsby-plugin-no-javascript-utils#readme",
   "private": false,
