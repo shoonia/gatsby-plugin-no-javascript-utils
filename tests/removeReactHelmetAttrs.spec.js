@@ -23,7 +23,7 @@ describe('removeReactHelmetAttrs', () => {
     });
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith([
+    expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith([
       {
         type: 'title',
         key: 'Blog',
@@ -42,7 +42,7 @@ describe('removeReactHelmetAttrs', () => {
     driver.mockHead(getMock()).apply(onPreRenderHTML).disableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith(getMock());
+    expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith(getMock());
   });
 
   it('should not break the build if in head components include an array', () => {
@@ -51,6 +51,6 @@ describe('removeReactHelmetAttrs', () => {
     driver.mockHead([ [] ]).apply(onPreRenderHTML).enableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith([[]]);
+    expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith([[]]);
   });
 });

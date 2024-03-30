@@ -11,7 +11,7 @@ describe('Options Schema', () => {
     const { isValid, errors } = await testSchema({});
 
     expect(isValid).toBe(true);
-    expect(errors).toEqual([]);
+    expect(errors).toStrictEqual([]);
   });
 
   it('should be valid with all options', async () => {
@@ -26,7 +26,7 @@ describe('Options Schema', () => {
     });
 
     expect(isValid).toBe(true);
-    expect(errors).toEqual([]);
+    expect(errors).toStrictEqual([]);
   });
 
   it('should be invalid schema', async () => {
@@ -41,7 +41,7 @@ describe('Options Schema', () => {
     });
 
     expect(isValid).toBe(false);
-    expect(errors).toEqual([
+    expect(errors).toStrictEqual([
       '"noScript" must be a boolean',
       '"noSourcemaps" must be a boolean',
       '"removeGeneratorTag" must be a boolean',

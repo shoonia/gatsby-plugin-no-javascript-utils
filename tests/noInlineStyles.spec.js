@@ -24,7 +24,7 @@ describe('noInlineStyles', () => {
     });
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith([
+    expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith([
       {
         type: 'link',
         key: null,
@@ -45,6 +45,6 @@ describe('noInlineStyles', () => {
     driver.mockHead(getMock()).apply(onPreRenderHTML).disableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith(getMock());
+    expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith(getMock());
   });
 });

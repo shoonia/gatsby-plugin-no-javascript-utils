@@ -35,7 +35,7 @@ describe('noScript', () => {
     });
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([
+    expect(driver.api.replacePostBodyComponents).toHaveBeenLastCalledWith([
       {
         type: 'script',
         key: '1',
@@ -86,7 +86,7 @@ describe('noScript', () => {
     });
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([]);
+    expect(driver.api.replacePostBodyComponents).toHaveBeenLastCalledWith([]);
   });
 
   it('should remove a module script', () => {
@@ -112,6 +112,6 @@ describe('noScript', () => {
     });
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([]);
+    expect(driver.api.replacePostBodyComponents).toHaveBeenLastCalledWith([]);
   });
 });

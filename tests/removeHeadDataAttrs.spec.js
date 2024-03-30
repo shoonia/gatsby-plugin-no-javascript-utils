@@ -33,7 +33,7 @@ describe('removeHeadDataAttrs', () => {
     });
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith([
+    expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith([
       {
         type: 'title',
         key: 'Blog',
@@ -61,6 +61,6 @@ describe('removeHeadDataAttrs', () => {
     driver.mockHead(getMock()).apply(onPreRenderHTML).disableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith(getMock());
+    expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith(getMock());
   });
 });

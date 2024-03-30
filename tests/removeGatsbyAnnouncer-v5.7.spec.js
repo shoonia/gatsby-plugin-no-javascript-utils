@@ -29,7 +29,7 @@ describe('removeGatsbyAnnouncer-v5.7', () => {
       },
     );
 
-    expect(result).toEqual({
+    expect(result).toStrictEqual({
       key: null,
       ref: null,
       props: {

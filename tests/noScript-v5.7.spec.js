@@ -33,6 +33,6 @@ describe('noScript v5.7', () => {
     });
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([]);
+    expect(driver.api.replacePostBodyComponents).toHaveBeenLastCalledWith([]);
   });
 });

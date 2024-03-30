@@ -127,7 +127,7 @@ describe('all v3.8.1', () => {
     driver.apply(onPreRenderHTML).enableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith([
+    expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith([
       {
         type: 'link',
         key: null,
@@ -162,6 +162,6 @@ describe('all v3.8.1', () => {
     ]);
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([]);
+    expect(driver.api.replacePostBodyComponents).toHaveBeenLastCalledWith([]);
   });
 });

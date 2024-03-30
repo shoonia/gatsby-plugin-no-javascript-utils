@@ -59,7 +59,7 @@ describe('removeGatsbyAnnouncer', () => {
       },
     );
 
-    expect(result).toEqual({
+    expect(result).toStrictEqual({
       key: null,
       ref: null,
       props: {
