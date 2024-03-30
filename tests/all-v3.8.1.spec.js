@@ -1,10 +1,17 @@
+const { describe, it, afterEach } = require('node:test');
+
+const { expect } = require('./expect.js');
 const { onPreRenderHTML } = require('../gatsby-ssr.js');
 const { Driver } = require('./Driver.js');
 
 describe('all v3.8.1', () => {
-  it('should do all transformation', () => {
-    const driver = new Driver();
+  const driver = new Driver();
 
+  afterEach(() => {
+    driver.reset();
+  });
+
+  it('should do all transformation', () => {
     driver.mockHead([
       {
         type: 'style',
@@ -122,12 +129,12 @@ describe('all v3.8.1', () => {
         },
         _owner: null,
       },
-    ]);
-
-    driver.apply(onPreRenderHTML).enableAllWith();
+    ])
+      .apply(onPreRenderHTML)
+      .enableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith([
+    expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith([
       {
         type: 'link',
         key: null,
@@ -162,6 +169,6 @@ describe('all v3.8.1', () => {
     ]);
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([]);
+    expect(driver.api.replacePostBodyComponents).toHaveBeenLastCalledWith([]);
   });
 });

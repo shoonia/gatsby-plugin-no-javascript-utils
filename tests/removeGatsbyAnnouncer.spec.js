@@ -1,3 +1,6 @@
+const { describe, it } = require('node:test');
+const { expect } = require('./expect.js');
+
 const { wrapRootElement } = require('../gatsby-ssr');
 
 describe('removeGatsbyAnnouncer', () => {
@@ -59,7 +62,7 @@ describe('removeGatsbyAnnouncer', () => {
       },
     );
 
-    expect(result).toEqual({
+    expect(result).toStrictEqual({
       key: null,
       ref: null,
       props: {

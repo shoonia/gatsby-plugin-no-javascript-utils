@@ -1,10 +1,17 @@
+const { describe, it, afterEach } = require('node:test');
+
+const { expect } = require('./expect.js');
 const { onPreRenderHTML } = require('../gatsby-ssr.js');
 const { Driver } = require('./Driver.js');
 
 describe('noScript', () => {
-  it('should not remove a ld+json script', () => {
-    const driver = new Driver();
+  const driver = new Driver();
 
+  afterEach(() => {
+    driver.reset();
+  });
+
+  it('should not remove a ld+json script', () => {
     driver.mockPostBody([
       {
         type: 'script',
@@ -28,14 +35,12 @@ describe('noScript', () => {
         },
         _owner: null,
       },
-    ]);
-
-    driver.apply(onPreRenderHTML).disableAllWith({
-      noScript: true,
-    });
+    ])
+      .apply(onPreRenderHTML)
+      .disableAllWith({ noScript: true });
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([
+    expect(driver.api.replacePostBodyComponents).toHaveBeenLastCalledWith([
       {
         type: 'script',
         key: '1',
@@ -52,8 +57,6 @@ describe('noScript', () => {
   });
 
   it('should remove scripts', () => {
-    const driver = new Driver();
-
     driver.mockPostBody([
       {
         type: 'script',
@@ -79,19 +82,15 @@ describe('noScript', () => {
         },
         _owner: null,
       },
-    ]);
-
-    driver.apply(onPreRenderHTML).disableAllWith({
-      noScript: true,
-    });
+    ])
+      .apply(onPreRenderHTML)
+      .disableAllWith({ noScript: true });
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([]);
+    expect(driver.api.replacePostBodyComponents).toHaveBeenLastCalledWith([]);
   });
 
   it('should remove a module script', () => {
-    const driver = new Driver();
-
     driver.mockPostBody([
       {
         type: 'script',
@@ -105,13 +104,11 @@ describe('noScript', () => {
         },
         _owner: null,
       },
-    ]);
-
-    driver.apply(onPreRenderHTML).disableAllWith({
-      noScript: true,
-    });
+    ])
+      .apply(onPreRenderHTML)
+      .disableAllWith({ noScript: true });
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replacePostBodyComponents).toHaveBeenCalledWith([]);
+    expect(driver.api.replacePostBodyComponents).toHaveBeenLastCalledWith([]);
   });
 });

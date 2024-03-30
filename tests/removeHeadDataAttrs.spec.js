@@ -1,3 +1,6 @@
+const { describe, it, afterEach } = require('node:test');
+
+const { expect } = require('./expect.js');
 const { onPreRenderHTML } = require('../gatsby-ssr.js');
 const { Driver } = require('./Driver.js');
 
@@ -25,15 +28,19 @@ const getMock = () => [
 ];
 
 describe('removeHeadDataAttrs', () => {
-  it('should remove data attrs', () => {
-    const driver = new Driver();
+  const driver = new Driver();
 
+  afterEach(() => {
+    driver.reset();
+  });
+
+  it('should remove data attrs', () => {
     driver.mockHead(getMock()).apply(onPreRenderHTML).disableAllWith({
       removeHeadDataAttrs: true,
     });
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith([
+    expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith([
       {
         type: 'title',
         key: 'Blog',
@@ -56,11 +63,9 @@ describe('removeHeadDataAttrs', () => {
   });
 
   it('should not remove data attrs', () => {
-    const driver = new Driver();
-
     driver.mockHead(getMock()).apply(onPreRenderHTML).disableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
-    expect(driver.api.replaceHeadComponents).toHaveBeenCalledWith(getMock());
+    expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith(getMock());
   });
 });
