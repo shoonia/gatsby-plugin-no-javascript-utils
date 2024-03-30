@@ -1,3 +1,6 @@
+const { describe, it, afterEach } = require('node:test');
+
+const { expect } = require('./expect.js');
 const { onPreRenderHTML } = require('../gatsby-ssr.js');
 const { Driver } = require('./Driver.js');
 

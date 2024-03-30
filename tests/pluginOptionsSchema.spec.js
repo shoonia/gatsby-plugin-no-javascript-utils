@@ -1,5 +1,7 @@
+const { describe, it } = require('node:test');
 const { testPluginOptionsSchema } = require('gatsby-plugin-utils');
 
+const { expect } = require('./expect.js');
 const { pluginOptionsSchema } = require('../gatsby-node');
 
 const testSchema = (option) => {

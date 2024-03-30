@@ -1,3 +1,6 @@
+const { describe, it } = require('node:test');
+
+const { expect } = require('./expect.js');
 const { wrapRootElement } = require('../gatsby-ssr');
 
 describe('removeGatsbyAnnouncer-v5.7', () => {

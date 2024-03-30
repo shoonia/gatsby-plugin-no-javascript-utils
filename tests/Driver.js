@@ -1,3 +1,5 @@
+const { mock } = require('node:test');
+
 class Driver {
   #head = [];
   #postBody = [];
@@ -23,7 +25,8 @@ class Driver {
   reset() {
     this.#head.length = 0;
     this.#postBody.length = 0;
-    jest.resetAllMocks();
+    this.api.replaceHeadComponents.mock.resetCalls();
+    this.api.replacePostBodyComponents.mock.resetCalls();
   }
 
   /**
@@ -65,13 +68,12 @@ class Driver {
     };
   }
 
-  /** @type {import('../gatsby-ssr').Api} */
   api = {
     getHeadComponents: () => this.#head,
     getPostBodyComponents: () => this.#postBody,
 
-    replaceHeadComponents: jest.fn(),
-    replacePostBodyComponents: jest.fn(),
+    replaceHeadComponents: mock.fn(),
+    replacePostBodyComponents: mock.fn(),
   };
 }
 
