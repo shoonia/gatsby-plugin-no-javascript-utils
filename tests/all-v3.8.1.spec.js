@@ -2,9 +2,13 @@ const { onPreRenderHTML } = require('../gatsby-ssr.js');
 const { Driver } = require('./Driver.js');
 
 describe('all v3.8.1', () => {
-  it('should do all transformation', () => {
-    const driver = new Driver();
+  const driver = new Driver();
 
+  afterEach(() => {
+    driver.reset();
+  });
+
+  it('should do all transformation', () => {
     driver.mockHead([
       {
         type: 'style',

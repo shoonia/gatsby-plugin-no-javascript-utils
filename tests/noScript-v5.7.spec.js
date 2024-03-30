@@ -2,9 +2,13 @@ const { onPreRenderHTML } = require('../gatsby-ssr.js');
 const { Driver } = require('./Driver.js');
 
 describe('noScript v5.7', () => {
-  it('should remove "_gatsby-scripts" component in v5.7', () => {
-    const driver = new Driver();
+  const driver = new Driver();
 
+  afterEach(() => {
+    driver.reset();
+  });
+
+  it('should remove "_gatsby-scripts" component in v5.7', () => {
     driver.mockPostBody([
       {
         type: 'script',

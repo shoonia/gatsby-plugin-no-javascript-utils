@@ -15,9 +15,13 @@ const getMock = () => [
 ];
 
 describe('removeReactHelmetAttrs', () => {
-  it('should remove data attrs', () => {
-    const driver = new Driver();
+  const driver = new Driver();
 
+  afterEach(() => {
+    driver.reset();
+  });
+
+  it('should remove data attrs', () => {
     driver.mockHead(getMock()).apply(onPreRenderHTML).disableAllWith({
       removeReactHelmetAttrs: true,
     });
@@ -37,8 +41,6 @@ describe('removeReactHelmetAttrs', () => {
   });
 
   it('should not remove data attrs', () => {
-    const driver = new Driver();
-
     driver.mockHead(getMock()).apply(onPreRenderHTML).disableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
@@ -46,8 +48,6 @@ describe('removeReactHelmetAttrs', () => {
   });
 
   it('should not break the build if in head components include an array', () => {
-    const driver = new Driver();
-
     driver.mockHead([ [] ]).apply(onPreRenderHTML).enableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);

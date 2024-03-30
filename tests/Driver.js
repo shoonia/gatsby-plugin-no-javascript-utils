@@ -20,6 +20,12 @@ class Driver {
     return this;
   }
 
+  reset() {
+    this.#head.length = 0;
+    this.#postBody.length = 0;
+    jest.resetAllMocks();
+  }
+
   /**
    * @param {(...any) => any} onPreRenderHTML
    */
@@ -61,8 +67,8 @@ class Driver {
 
   /** @type {import('../gatsby-ssr').Api} */
   api = {
-    getHeadComponents: jest.fn(() => this.#head),
-    getPostBodyComponents: jest.fn(() => this.#postBody),
+    getHeadComponents: () => this.#head,
+    getPostBodyComponents: () => this.#postBody,
 
     replaceHeadComponents: jest.fn(),
     replacePostBodyComponents: jest.fn(),

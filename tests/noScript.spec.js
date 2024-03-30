@@ -2,9 +2,13 @@ const { onPreRenderHTML } = require('../gatsby-ssr.js');
 const { Driver } = require('./Driver.js');
 
 describe('noScript', () => {
-  it('should not remove a ld+json script', () => {
-    const driver = new Driver();
+  const driver = new Driver();
 
+  afterEach(() => {
+    driver.reset();
+  });
+
+  it('should not remove a ld+json script', () => {
     driver.mockPostBody([
       {
         type: 'script',
@@ -50,8 +54,6 @@ describe('noScript', () => {
   });
 
   it('should remove scripts', () => {
-    const driver = new Driver();
-
     driver.mockPostBody([
       {
         type: 'script',
@@ -86,8 +88,6 @@ describe('noScript', () => {
   });
 
   it('should remove a module script', () => {
-    const driver = new Driver();
-
     driver.mockPostBody([
       {
         type: 'script',
