@@ -122,9 +122,9 @@ describe('all v3.8.1', () => {
         },
         _owner: null,
       },
-    ]);
-
-    driver.apply(onPreRenderHTML).enableAllWith();
+    ])
+      .apply(onPreRenderHTML)
+      .enableAllWith();
 
     expect(driver.api.replaceHeadComponents).toHaveBeenCalledTimes(1);
     expect(driver.api.replaceHeadComponents).toHaveBeenLastCalledWith([

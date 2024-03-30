@@ -26,11 +26,9 @@ describe('noScript v5.7', () => {
         },
         _owner: null,
       },
-    ]);
-
-    driver.apply(onPreRenderHTML).disableAllWith({
-      noScript: true,
-    });
+    ])
+      .apply(onPreRenderHTML)
+      .disableAllWith({ noScript: true });
 
     expect(driver.api.replacePostBodyComponents).toHaveBeenCalledTimes(1);
     expect(driver.api.replacePostBodyComponents).toHaveBeenLastCalledWith([]);
