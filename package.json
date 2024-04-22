@@ -8,9 +8,9 @@
     "test": "NODE_ENV=production node --test tests/*.spec.js"
   },
   "devDependencies": {
-    "@evilmartians/lefthook": "^1.6.7",
-    "@types/node": "^20.12.2",
-    "eslint": "^8.57.0",
+    "@evilmartians/lefthook": "^1.6.10",
+    "@types/node": "^20.12.7",
+    "eslint": "^9.1.0",
     "gatsby-plugin-utils": "^4.13.1"
   },
   "peerDependencies": {
